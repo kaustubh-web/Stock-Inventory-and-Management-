@@ -1,0 +1,29 @@
+nav {
+  display: flex;
+  gap: 16px;
+  padding: 12px 24px;
+  background-color: #1f2937; /* dark gray/blue */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.dashboard-cards {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.dashboard-card {
+  flex: 1;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+}
