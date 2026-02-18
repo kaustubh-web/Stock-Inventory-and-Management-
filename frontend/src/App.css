@@ -10,7 +10,7 @@
   height: 100vh;
   padding: 20px 14px;
   border-right: 1px solid var(--line);
-  background: rgba(248, 251, 255, 0.88);
+  background: rgba(248, 249, 251, 0.92);
   backdrop-filter: blur(8px);
   display: grid;
   align-content: start;
@@ -87,7 +87,7 @@
 .workspace-header {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  background: linear-gradient(180deg, #ffffff, #f7f8fa);
   box-shadow: var(--shadow-sm);
   padding: 16px;
 }
@@ -190,7 +190,7 @@
 }
 
 .badge {
-  background: #edf3fb;
+  background: #e8edf2;
   color: #355572;
   border-radius: 999px;
   padding: 5px 8px;
@@ -248,7 +248,7 @@ select:focus {
   border: 0;
   border-radius: 8px;
   padding: 9px 10px;
-  background: linear-gradient(135deg, #0f4f8c, #1f6aa8);
+  background: linear-gradient(135deg, #0a4f73, #1a6a8f);
   color: #fff;
   font-weight: 700;
   cursor: pointer;
@@ -280,7 +280,7 @@ td {
 }
 
 th {
-  background: #f8fbff;
+  background: #f6f8fa;
   color: var(--muted);
   font-size: 0.72rem;
   text-transform: uppercase;
@@ -364,7 +364,7 @@ th {
     gap: 6px;
     padding: 10px;
     border-bottom: 1px solid var(--line);
-    background: rgba(248, 251, 255, 0.95);
+    background: rgba(248, 249, 251, 0.95);
     backdrop-filter: blur(8px);
   }
 
@@ -393,3 +393,5 @@ th {
     grid-template-columns: 1fr;
   }
 }
+
+

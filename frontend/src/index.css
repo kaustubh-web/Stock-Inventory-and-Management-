@@ -1,27 +1,27 @@
 :root {
-  --bg: #eef2f7;
-  --bg-accent: #f7fbff;
+  --bg: #1f2937;
+  --bg-accent: #111827;
   --surface: #ffffff;
-  --surface-soft: #f8fafc;
+  --surface-soft: #f4f6f8;
   --text: #101827;
-  --muted: #64748b;
-  --line: #d9e2ec;
-  --line-strong: #c7d2df;
-  --brand: #0f4f8c;
-  --brand-soft: #e5eff9;
+  --muted: #627184;
+  --line: #d4dde7;
+  --line-strong: #bec9d6;
+  --brand: #0f4e73;
+  --brand-soft: #dceaf3;
   --success: #0f766e;
-  --warning: #b45309;
+  --warning: #a86011;
   --danger: #b42318;
   --radius-lg: 16px;
   --radius-md: 10px;
-  --shadow-sm: 0 6px 18px rgba(15, 31, 56, 0.08);
+  --shadow-sm: 0 8px 20px rgba(15, 30, 55, 0.08);
 
   font-family: "Aptos", "Segoe UI", "Trebuchet MS", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at 8% 6%, #dce9fb 0%, transparent 30%),
-    radial-gradient(circle at 88% 4%, #e1f3ee 0%, transparent 28%),
-    linear-gradient(180deg, var(--bg-accent) 0%, var(--bg) 100%);
+    radial-gradient(circle at 12% 8%, rgba(56, 189, 248, 0.18) 0%, transparent 28%),
+    radial-gradient(circle at 86% 12%, rgba(45, 212, 191, 0.14) 0%, transparent 24%),
+    linear-gradient(160deg, var(--bg-accent) 0%, var(--bg) 55%, #334155 100%);
 }
 
 * {
@@ -31,6 +31,7 @@
 body {
   margin: 0;
   min-width: 320px;
+  background: transparent;
 }
 
 #root {
