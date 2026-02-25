@@ -1,6 +1,7 @@
 import "./App.css";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 import DashBoardPage from "./pages/DashBoardPage";
 import LoginPage from "./pages/LoginPage";
@@ -11,9 +12,12 @@ function App() {
   return (
     <>
       <SignedOut>
-        <Routes>
-          <Route path="*" element={<LoginPage />} />
-        </Routes>
+        <div className="public-layout">
+          <Routes>
+            <Route path="*" element={<LoginPage />} />
+          </Routes>
+          <Footer />
+        </div>
       </SignedOut>
 
       <SignedIn>
@@ -36,6 +40,8 @@ function App() {
                 <Route path="*" element={<Navigate to="/dashboard" replace />} />
               </Routes>
             </main>
+
+            <Footer />
           </div>
         </div>
       </SignedIn>

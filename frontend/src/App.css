@@ -4,6 +4,12 @@
   grid-template-columns: 230px 1fr;
 }
 
+.public-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .side-nav {
   position: sticky;
   top: 0;
@@ -82,6 +88,8 @@
 
 .workspace {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .workspace-header {
@@ -104,6 +112,7 @@
 
 .workspace-main {
   margin-top: 16px;
+  flex: 1;
 }
 
 .page {
@@ -333,7 +342,7 @@ th {
 }
 
 .auth-page {
-  min-height: calc(100vh - 2rem);
+  min-height: calc(100vh - 160px);
   display: grid;
   place-items: center;
   padding: 1rem;
@@ -395,6 +404,25 @@ th {
 
 .auth-toggle.active {
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.site-footer {
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.site-footer-inner {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.83rem;
+}
+
+.site-footer-inner p {
+  margin: 0;
 }
 
 @media (max-width: 1050px) {
@@ -462,5 +490,10 @@ th {
 
   .auth-intro h2 {
     font-size: 1.3rem;
+  }
+
+  .site-footer-inner {
+    flex-direction: column;
+    gap: 8px;
   }
 }
