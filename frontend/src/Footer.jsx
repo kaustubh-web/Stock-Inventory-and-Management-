@@ -20,6 +20,15 @@ export default function Footer() {
             <span>Address 📍🗺️</span>
             Nagpur, Maharashtra, India
           </p>
+          <p>
+            <a 
+              href="https://www.linkedin.com/in/kaustubh-bramhe-1b7565291/" 
+              target="_blank" 
+              rel="noreferrer"
+            >
+              <span>LinkedIn 🔗</span>
+            </a>
+          </p>
         </div>
       </div>
     </footer>

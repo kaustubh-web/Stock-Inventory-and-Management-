@@ -6,10 +6,10 @@ const navItems = [
   { to: "/movements", label: "Movements" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ isOpen, onNavigate }) {
   return (
     <>
-      <aside className="side-nav">
+      <aside id="main-sidebar" className={`side-nav ${isOpen ? "side-nav-open" : ""}`}>
         <div className="side-brand">
           <p className="side-brand-title">Stock Inventory</p>
           <p className="side-brand-subtitle">Ops Workspace</p>
@@ -20,6 +20,7 @@ export default function Navbar() {
             <NavLink
               key={item.to}
               to={item.to}
+              onClick={onNavigate}
               className={({ isActive }) =>
                 isActive ? "side-link side-link-active" : "side-link"
               }
@@ -34,20 +35,6 @@ export default function Navbar() {
           <p className="side-status-value">API Connected</p>
         </div>
       </aside>
-
-      <nav className="mobile-nav" aria-label="Mobile navigation">
-        {navItems.map((item) => (
-          <NavLink
-            key={item.to}
-            to={item.to}
-            className={({ isActive }) =>
-              isActive ? "mobile-link mobile-link-active" : "mobile-link"
-            }
-          >
-            {item.label}
-          </NavLink>
-        ))}
-      </nav>
     </>
   );
 }

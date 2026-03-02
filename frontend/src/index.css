@@ -1,8 +1,8 @@
 :root {
-  --bg: #1f2937;
-  --bg-accent: #111827;
+  --bg: #eef3f7;
+  --bg-accent: #f8fafc;
   --surface: #ffffff;
-  --surface-soft: #f4f6f8;
+  --surface-soft: #f4f7fb;
   --text: #101827;
   --muted: #627184;
   --line: #d4dde7;
@@ -18,6 +18,25 @@
 
   font-family: "Aptos", "Segoe UI", "Trebuchet MS", sans-serif;
   color: var(--text);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(69, 148, 199, 0.14) 0%, transparent 28%),
+    radial-gradient(circle at 86% 12%, rgba(74, 163, 149, 0.1) 0%, transparent 24%),
+    linear-gradient(160deg, var(--bg-accent) 0%, var(--bg) 100%);
+}
+
+:root[data-theme="dark"] {
+  --bg: #1f2937;
+  --bg-accent: #111827;
+  --surface: #111827;
+  --surface-soft: #1f2937;
+  --text: #e5edf6;
+  --muted: #9caec2;
+  --line: #334155;
+  --line-strong: #475569;
+  --brand: #7dd3fc;
+  --brand-soft: #1e3a52;
+  --shadow-sm: 0 8px 20px rgba(2, 8, 23, 0.45);
+
   background:
     radial-gradient(circle at 12% 8%, rgba(56, 189, 248, 0.18) 0%, transparent 28%),
     radial-gradient(circle at 86% 12%, rgba(45, 212, 191, 0.14) 0%, transparent 24%),
