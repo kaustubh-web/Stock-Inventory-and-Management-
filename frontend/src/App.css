@@ -543,7 +543,7 @@ th {
   margin: 0;
   color: var(--text);
   font-size: 0.85rem;
-  background: #ffffff;
+  background: var(--surface-soft);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 8px 10px;
@@ -556,6 +556,15 @@ th {
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.7px;
+}
+
+:root[data-theme="dark"] .footer-contact-grid p {
+  background: #0b1220;
+  border-color: #3f4f64;
+}
+
+:root[data-theme="dark"] .footer-contact-grid span {
+  color: #b5c3d5;
 }
 
 @media (max-width: 1050px) {
