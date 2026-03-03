@@ -62,7 +62,7 @@ export default function LoginPage() {
           <h2>Secure Workspace Access</h2>
           <p>
             Sign in to manage products, monitor stock movement, and maintain a
-            clean inventory ledger.
+            clean inventory ledger in one place.
           </p>
           <ul className="auth-points">
             <li>Track stock in real time</li>
