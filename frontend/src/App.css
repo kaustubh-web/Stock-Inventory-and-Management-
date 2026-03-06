@@ -643,8 +643,10 @@ th {
 
 .footer-socials {
   display: flex !important;
+  flex-wrap: wrap;
   gap: 10px;
   align-items: center;
+  align-content: center;
 }
 
 .footer-social-link {
@@ -658,6 +660,9 @@ th {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
+  flex: 1 1 120px;
+  min-width: 0;
+  justify-content: center;
 }
 
 .footer-social-link:hover {
