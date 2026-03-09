@@ -333,6 +333,16 @@ select {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
+  color: var(--text);
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+select option {
+  background: var(--surface);
+  color: var(--text);
 }
 
 input:focus,
