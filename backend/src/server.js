@@ -6,7 +6,6 @@ const Product = require("./models/Product");
 const Movement= require("./models/Movement");
 
 dotenv.config();
-connectDB();
 
 const app = express();
 app.use(cors());
@@ -121,6 +120,15 @@ app.get("/api/dashboard/summary", async (req, res) => {
 
 
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+
+async function startServer() {
+  await connectDB();
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
+
+startServer().catch((error) => {
+  console.error("Server startup failed:", error.message);
+  process.exit(1);
 });
