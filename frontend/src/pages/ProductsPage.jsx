@@ -63,12 +63,12 @@ export default function ProductsPage() {
     <section className="page">
       <div className="page-heading">
         <h2>Products</h2>
-        <p>Manage catalog records and stock thresholds.</p>
+        <p>Keep SKU names clean, quantities current, and reorder levels realistic.</p>
       </div>
 
       <section className="panel">
         <div className="panel-header">
-          <h3>Add Product</h3>
+          <h3>Add or correct a SKU</h3>
         </div>
 
         <form onSubmit={onSubmit}>
@@ -94,8 +94,8 @@ export default function ProductsPage() {
       {!loading && (
         <section className="panel">
           <div className="panel-header">
-            <h3>Product List</h3>
-            <span className="badge">{products.length} items</span>
+            <h3>Catalog list</h3>
+            <span className="badge">{products.length} active SKUs</span>
           </div>
 
           <div className="table-wrap">

@@ -12,7 +12,7 @@ export default function Navbar({ isOpen, onNavigate }) {
       <aside id="main-sidebar" className={`side-nav ${isOpen ? "side-nav-open" : ""}`}>
         <div className="side-brand">
           <p className="side-brand-title">Stock Inventory</p>
-          <p className="side-brand-subtitle">Ops Workspace</p>
+          <p className="side-brand-subtitle">Daily stock desk</p>
         </div>
 
         <nav className="side-links" aria-label="Main navigation">
@@ -31,8 +31,8 @@ export default function Navbar({ isOpen, onNavigate }) {
         </nav>
 
         <div className="side-status">
-          <p className="side-status-label">System</p>
-          <p className="side-status-value">API Connected</p>
+          <p className="side-status-label">Today's focus</p>
+          <p className="side-status-value">Review low-stock lines before dispatch</p>
         </div>
       </aside>
     </>

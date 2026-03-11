@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="site-footer-inner">
         <div className="footer-brand">
           <p className="footer-kicker">Stock Inventory</p>
-          <p className="footer-title">Built and maintained by Kaustubh Bramhe</p>
+          <p className="footer-title">Built for day-to-day catalog cleanup, receiving, and dispatch tracking.</p>
         </div>
 
         <div className="footer-contact-grid">
@@ -19,7 +19,7 @@ export default function Footer() {
             +91 9302527611
           </p>
           <p>
-            <span>Address</span>
+            <span>Base</span>
             Nagpur, Maharashtra, India
           </p>
           <div className="footer-socials">

@@ -59,15 +59,15 @@ export default function LoginPage() {
       <div className="auth-shell">
         <section className="auth-intro">
           <p className="auth-kicker">Stock Inventory</p>
-          <h2>Secure Workspace Access</h2>
+          <h2>Sign in before you touch live stock</h2>
           <p>
-            Sign in to manage products, monitor stock movement, and maintain a
-            clean inventory ledger in one place.
+            This workspace is for updating real counts, correcting SKU details,
+            and recording incoming or outgoing inventory without losing the trail.
           </p>
           <ul className="auth-points">
-            <li>Track stock in real time</li>
-            <li>View low-stock alerts and movement history</li>
-            <li>Manage catalog updates in one console</li>
+            <li>Review low-stock lines before they affect packing</li>
+            <li>Keep the movement ledger tied to actual quantity changes</li>
+            <li>Clean up product records without losing stock history</li>
           </ul>
         </section>
 

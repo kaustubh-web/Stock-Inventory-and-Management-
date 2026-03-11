@@ -83,7 +83,7 @@ function App() {
                   <span />
                   <span />
                 </button>
-                <h1>Inventory Operations</h1>
+                <h1>Stock desk for daily ops</h1>
                 <button
                   type="button"
                   className="theme-toggle"
@@ -96,7 +96,7 @@ function App() {
                   </span>
                 </button>
               </div>
-              <p>Single console for catalog control, stock flow, and restock risk.</p>
+              <p>Check low stock, clean up SKUs, and log item movement before the next dispatch run.</p>
             </header>
 
             <main className="workspace-main">

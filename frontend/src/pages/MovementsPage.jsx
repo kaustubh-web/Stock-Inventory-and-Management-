@@ -71,13 +71,13 @@ export default function MovementsPage() {
     <section className="page">
       <div className="page-heading">
         <h2>Movements</h2>
-        <p>Record stock inflow and outflow with traceable notes.</p>
+        <p>Log what came in, what went out, and why the count changed.</p>
       </div>
 
       <div className="split-grid">
         <section className="panel">
           <div className="panel-header">
-            <h3>Record Movement</h3>
+            <h3>Record a stock change</h3>
           </div>
 
           <form className="form-grid" onSubmit={handleSubmit}>
@@ -115,8 +115,8 @@ export default function MovementsPage() {
 
         <section className="panel">
           <div className="panel-header">
-            <h3>Movement Stats</h3>
-            <span className="badge">{movements.length} records</span>
+            <h3>Today at a glance</h3>
+            <span className="badge">{movements.length} ledger entries</span>
           </div>
 
           <div className="metric-stack">
@@ -134,14 +134,14 @@ export default function MovementsPage() {
 
       <section className="panel">
         <div className="panel-header">
-          <h3>Movement Ledger</h3>
+          <h3>Movement ledger</h3>
         </div>
 
         {loading ? (
           <p className="state-text">Loading movements...</p>
         ) : movements.length === 0 ? (
           <div className="empty-block">
-            <p>No movement entries yet. Record the first one above.</p>
+            <p>No stock changes logged yet. Add the first receiving or dispatch entry above.</p>
           </div>
         ) : (
           <div className="table-wrap">

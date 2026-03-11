@@ -29,42 +29,78 @@ export default function DashBoardPage() {
   const stockHealth = summary.totalProducts
     ? Math.max(0, Math.round(((summary.totalProducts - summary.lowStockItems) / summary.totalProducts) * 100))
     : 100;
+  const urgentCount = summary.lowStockProducts?.filter(
+    (item) => item.quantity <= Math.max(0, item.reorderLevel - 2)
+  ).length ?? 0;
+  const attentionMessage = summary.lowStockItems
+    ? `${summary.lowStockItems} SKU${summary.lowStockItems > 1 ? "s are" : " is"} below target.`
+    : "All tracked SKUs are above reorder level.";
 
   return (
     <section className="page">
       <div className="page-heading">
-        <h2>Dashboard</h2>
-        <p>Current health of your inventory operation.</p>
+        <h2>Inventory snapshot</h2>
+        <p>{attentionMessage}</p>
       </div>
 
-      <div className="kpi-grid">
-        <article className="kpi-card">
-          <p className="kpi-label">Total Products</p>
-          <p className="kpi-value">{summary.totalProducts}</p>
-        </article>
+      <div className="dashboard-grid">
+        <section className="hero-panel">
+          <div className="hero-panel-top">
+            <div>
+              <p className="hero-kicker">Priority queue</p>
+              <h3>Low-stock items need attention first</h3>
+            </div>
+            <span className="badge">{summary.lowStockItems} flagged</span>
+          </div>
+          <p className="hero-copy">
+            Use this view to catch products that can block packing or create manual stock corrections later in the day.
+          </p>
 
-        <article className="kpi-card kpi-warning">
-          <p className="kpi-label">Low Stock Items</p>
-          <p className="kpi-value">{summary.lowStockItems}</p>
-        </article>
+          <div className="hero-metrics">
+            <article className="hero-metric">
+              <p className="kpi-label">Urgent lines</p>
+              <p className="hero-metric-value">{urgentCount}</p>
+              <p className="hero-metric-note">Already below buffer</p>
+            </article>
+            <article className="hero-metric">
+              <p className="kpi-label">Healthy stock</p>
+              <p className="hero-metric-value">{stockHealth}%</p>
+              <p className="hero-metric-note">Across tracked SKUs</p>
+            </article>
+            <article className="hero-metric">
+              <p className="kpi-label">Movement in last day</p>
+              <p className="hero-metric-value">{summary.recentMovements24h}</p>
+              <p className="hero-metric-note">Recent edits and scans</p>
+            </article>
+          </div>
+        </section>
 
-        <article className="kpi-card kpi-info">
-          <p className="kpi-label">Movements (24h)</p>
-          <p className="kpi-value">{summary.recentMovements24h}</p>
-        </article>
+        <aside className="insight-stack">
+          <article className="kpi-card kpi-warning">
+            <p className="kpi-label">Low Stock</p>
+            <p className="kpi-value">{summary.lowStockItems}</p>
+          </article>
 
-        <article className="kpi-card kpi-success">
-          <p className="kpi-label">Stock Health</p>
-          <p className="kpi-value">{stockHealth}%</p>
-        </article>
+          <article className="kpi-card">
+            <p className="kpi-label">Tracked SKUs</p>
+            <p className="kpi-value">{summary.totalProducts}</p>
+          </article>
+
+          <article className="panel note-panel">
+            <p className="metric-label">Shift note</p>
+            <p className="note-copy">
+              Check the flagged rows before adding new catalog entries. The quicker fix is usually a stock adjustment, not another SKU.
+            </p>
+          </article>
+        </aside>
       </div>
 
       <div className="split-grid">
         <section className="panel">
           <div className="panel-header">
-            <h3>Low Stock Queue</h3>
+            <h3>Low-stock queue</h3>
             <Link className="text-link" to="/products">
-              Open Products
+              Open product list
             </Link>
           </div>
 
@@ -93,25 +129,25 @@ export default function DashBoardPage() {
             </div>
           ) : (
             <div className="empty-block">
-              <p>No low-stock products right now.</p>
+              <p>No items have slipped below reorder level today.</p>
             </div>
           )}
         </section>
 
         <section className="panel">
           <div className="panel-header">
-            <h3>Actions</h3>
+            <h3>Next actions</h3>
           </div>
 
           <div className="action-list">
             <Link className="action-item" to="/products">
-              Add or update catalog products
+              Review product details and restock levels
             </Link>
             <Link className="action-item" to="/movements">
-              Record stock IN/OUT movement
+              Log receiving or dispatch movement
             </Link>
-            <Link className="action-item" to="/login">
-              Review access configuration
+            <Link className="action-item" to="/dashboard">
+              Recheck the priority queue after updates
             </Link>
           </div>
         </section>
