@@ -59,7 +59,25 @@ function App() {
 
       <SignedIn>
         <div className={`app-layout ${isSidebarOpen ? "sidebar-open" : ""}`}>
-          <Navbar isOpen={isSidebarOpen} onNavigate={closeSidebarOnMobile} />
+          <Navbar
+            isOpen={isSidebarOpen}
+            onNavigate={closeSidebarOnMobile}
+            onToggleSidebar={toggleSidebar}
+          />
+          {!isSidebarOpen ? (
+            <button
+              type="button"
+              className="sidebar-peek-btn"
+              onClick={toggleSidebar}
+              aria-expanded={isSidebarOpen}
+              aria-controls="main-sidebar"
+              aria-label="Open sidebar"
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          ) : null}
           <button
             type="button"
             className="sidebar-overlay"
@@ -71,18 +89,6 @@ function App() {
           <div className="workspace">
             <header className="workspace-header">
               <div className="workspace-header-top">
-                <button
-                  type="button"
-                  className="hamburger-btn"
-                  onClick={toggleSidebar}
-                  aria-expanded={isSidebarOpen}
-                  aria-controls="main-sidebar"
-                  aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
-                >
-                  <span />
-                  <span />
-                  <span />
-                </button>
                 <h1>Stock desk for daily ops</h1>
                 <button
                   type="button"
