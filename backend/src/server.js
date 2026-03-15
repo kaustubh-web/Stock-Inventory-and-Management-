@@ -14,7 +14,7 @@ const allowedOrigins = (process.env.CORS_ORIGIN || "")
   .map((origin) => origin.trim())
   .filter(Boolean);
 
-app.use(cors({
+const corsOptions = {
   origin(origin, callback) {
     if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -22,8 +22,14 @@ app.use(cors({
     }
 
     callback(new Error("CORS origin not allowed"));
-  }
-}));
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {
