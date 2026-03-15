@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: stock-inventory-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5001
+      - key: MONGO_URI
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false

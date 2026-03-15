@@ -1,18 +1,36 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 const Product = require("./models/Product");
-const Movement= require("./models/Movement");
+const Movement = require("./models/Movement");
 
 dotenv.config();
 
 const app = express();
-app.use(cors());
+const allowedOrigins = (process.env.CORS_ORIGIN || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+      callback(null, true);
+      return;
+    }
+
+    callback(new Error("CORS origin not allowed"));
+  }
+}));
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {
-  res.json({ ok: true });
+  res.json({
+    ok: true,
+    dbState: mongoose.connection.readyState
+  });
 });
 
 app.post("/api/products", async (req, res) => {
@@ -72,15 +90,14 @@ app.post("/api/movements", async (req, res) => {
 
 
 
-app.get("/api/movements",async(req,res)=>{
+app.get("/api/movements", async (req, res) => {
   try {
-    const movements=await Movement.find()
-    .populate("product","name sku")
-    .sort({createdAt: -1});
-  res.json(movements);
-    
+    const movements = await Movement.find()
+      .populate("product", "name sku")
+      .sort({ createdAt: -1 });
+    res.json(movements);
   } catch (error) {
-    res.status(500).json({message : error.message});
+    res.status(500).json({ message: error.message });
   }
 });
 
