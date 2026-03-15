@@ -29,7 +29,14 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+app.use((req, res, next) => {
+  if (req.method === "OPTIONS") {
+    cors(corsOptions)(req, res, next);
+    return;
+  }
+
+  next();
+});
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {
