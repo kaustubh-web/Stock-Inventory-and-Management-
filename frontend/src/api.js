@@ -49,7 +49,7 @@ export function createProduct(productData) {
 }
 
 export function getMovements() {
-  return request("/movements");
+  return request("/movements");git 
 }
 
 export function createMovement(movementData) {
